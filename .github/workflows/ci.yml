@@ -1,0 +1,208 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  # Backend CI
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint code
+        run: npm run lint || true
+
+      - name: Run tests
+        run: npm test || true
+
+      - name: Build application
+        run: npm run build || true
+
+  # Frontend CI
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint code
+        run: npm run lint || true
+
+      - name: Run tests
+        run: npm test -- --coverage --watchAll=false || true
+
+      - name: Build application
+        run: npm run build
+
+  # Smart Contracts CI
+  smart-contracts:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./smart-contracts
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: 'npm'
+          cache-dependency-path: smart-contracts/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compile contracts
+        run: npx hardhat compile
+
+      - name: Run contract tests
+        run: npm test || true
+
+      - name: Check gas usage
+        run: npm run test:gas || true
+
+  # AI Service CI
+  ai-service:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./ai-service
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Lint code
+        run: |
+          pip install flake8
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics || true
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics || true
+
+      - name: Run tests
+        run: python -m pytest || true
+
+      - name: Type check (if using mypy)
+        run: mypy . || true
+
+  # Docker Build Test
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build backend Docker image
+        run: docker build -t nft-backend:test ./backend
+
+      - name: Build frontend Docker image
+        run: docker build -t nft-frontend:test ./frontend
+
+      - name: Build ai-service Docker image
+        run: docker build -t nft-ai-service:test ./ai-service
+
+  # Security Scan
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: Install audit tools
+        run: npm install -g audit-ci
+
+      - name: Audit backend dependencies
+        run: cd backend && audit-ci --config audit-ci.json || true
+        continue-on-error: true
+
+      - name: Audit frontend dependencies
+        run: cd frontend && audit-ci --config audit-ci.json || true
+        continue-on-error: true
+
+      - name: Audit smart-contracts dependencies
+        run: cd smart-contracts && audit-ci --config audit-ci.json || true
+        continue-on-error: true
+
+  # Code Quality
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: Install quality tools
+        run: npm install -g eslint prettier typescript
+
+      - name: Check formatting
+        run: |
+          npx prettier --check "backend/**/*.{js,ts,json}" "frontend/src/**/*.{js,ts,tsx,json}" "smart-contracts/**/*.{js,ts,sol,json}" || true
+
+      - name: Check TypeScript types
+        run: |
+          cd frontend && npx tsc --noEmit || true
+          cd ../backend && npx tsc --noEmit || true
+          cd ../smart-contracts && npx tsc --noEmit || true

@@ -1,0 +1,100 @@
+version: 2
+updates:
+  # Backend dependencies
+  - package-ecosystem: "npm"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "@backend-team"
+    assignees:
+      - "@backend-team"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+      include: "scope"
+
+  # Frontend dependencies
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "@frontend-team"
+    assignees:
+      - "@frontend-team"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+      include: "scope"
+
+  # Smart Contracts dependencies
+  - package-ecosystem: "npm"
+    directory: "/smart-contracts"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@blockchain-team"
+    assignees:
+      - "@blockchain-team"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+      include: "scope"
+
+  # AI Service dependencies
+  - package-ecosystem: "pip"
+    directory: "/ai-service"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@ai-team"
+    assignees:
+      - "@ai-team"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+
+  # Docker dependencies
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@devops-team"
+    assignees:
+      - "@devops-team"
+    commit-message:
+      prefix: "docker"
+      include: "scope"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "@devops-team"
+    assignees:
+      - "@devops-team"
+    commit-message:
+      prefix: "ci"
+      include: "scope"

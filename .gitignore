@@ -163,3 +163,38 @@ coverage/
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Additional environment files
+.env.backup
+.env.example.local
+.env.*.local
+
+# Build outputs
+frontend/build/
+backend/dist/
+smart-contracts/artifacts/
+smart-contracts/typechain-types/
+
+# Local development files
+*.local
+.env.development
+.env.production
+.env.staging
+
+# Security scans and reports
+security-reports/
+audit-results.json
+npm-audit.json
+
+# Performance monitoring
+lighthouse-reports/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Lock files (uncomment if using different package managers)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

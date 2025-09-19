@@ -1,5 +1,5 @@
 ---
-name: 🐛 Bug Report
+name: Bug Report
 about: Create a report to help us improve
 title: "[BUG] "
 labels: bug
@@ -7,51 +7,38 @@ assignees: ''
 
 ---
 
-## 🐛 버그 보고
+## Bug Description
+A clear and concise description of what the bug is.
 
-### 📋 버그 설명
-<!-- 버그가 무엇인지 명확하고 간결하게 설명해주세요 -->
-
-**버그 요약:**
-<!-- 버그의 간단한 설명 -->
-
-**예상 동작:**
-<!-- 정상적인 경우 어떻게 동작해야 하는지 -->
-
-**실제 동작:**
-<!-- 실제로 어떻게 동작하는지 -->
-
-### 🔍 재현 방법
-<!-- 버그를 재현하는 단계별 방법 -->
-
-**재현 단계:**
+## Steps to Reproduce
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
-**재현 환경:**
-- OS: [e.g., Windows 10, macOS Big Sur]
-- Browser: [e.g., Chrome 91, Firefox 89]
-- Node.js 버전: [e.g., 18.12.0]
-- Docker 버전: [e.g., 24.0.2]
+## Expected Behavior
+A clear and concise description of what you expected to happen.
 
-### 📸 스크린샷
-<!-- 가능하다면 스크린샷을 첨부해주세요 -->
+## Actual Behavior
+A clear and concise description of what actually happened.
 
-### 📊 추가 정보
-<!-- 버그와 관련된 추가 정보나 맥락 -->
+## Screenshots
+If applicable, add screenshots to help explain your problem.
 
-**콘솔 에러:**
-```
-여기에 콘솔 에러 메시지를 붙여넣으세요
-```
+## Environment
+- **OS:** [e.g. Windows 10, macOS 12.1]
+- **Browser:** [e.g. Chrome 91, Safari 14]
+- **Node Version:** [e.g. 18.0.0]
+- **Branch:** [e.g. main, develop]
 
-**환경 변수:**
-<!-- 관련된 환경 변수 설정을 공유해주세요 (민감한 정보 제외) -->
+## Additional Context
+- **Service:** [backend, frontend, ai-service, smart-contracts]
+- **Endpoint/Function:** [if applicable]
+- **Error Logs:** [paste relevant error logs]
+- **Database:** [MongoDB, PostgreSQL, etc.]
 
-### ✅ 체크리스트
-- [ ] 최신 버전에서 테스트했음
-- [ ] 다른 이슈와 중복되지 않음
-- [ ] 민감한 정보가 포함되지 않음
-- [ ] 재현 가능한 단계 제공
+## Possible Solution
+If you have a suggestion for fixing the bug, please describe it here.
+
+## Related Issues
+Link to any related issues or pull requests.

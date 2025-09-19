@@ -1,67 +1,78 @@
-## 📝 Pull Request
+## Description
+Brief description of the changes made in this PR.
 
-### 🎯 변경 사항 요약
-<!-- 이 PR이 해결하는 문제나 추가하는 기능에 대해 간단히 설명해주세요 -->
+## Type of Change
+- [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
+- [ ] ✨ New feature (non-breaking change which adds functionality)
+- [ ] 💥 Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] 📚 Documentation update
+- [ ] 🎨 Style/Code quality improvement
+- [ ] ⚡ Performance improvement
+- [ ] 🔧 Configuration/DevOps change
+- [ ] 🔒 Security enhancement
 
-**변경 유형:**
-- [ ] 🐛 버그 수정
-- [ ] ✨ 새로운 기능
-- [ ] 💥 Breaking change (기존 API 변경)
-- [ ] 📚 문서화
-- [ ] 🎨 스타일링 (UI/UX)
-- [ ] 🧪 테스트 추가/수정
-- [ ] 🔧 설정 파일 변경
-- [ ] 📦 빌드/배포 관련
+## Changes Made
+### Backend
+- [ ] Changes to API endpoints
+- [ ] Database schema changes
+- [ ] Authentication/Authorization updates
+- [ ] Service layer modifications
 
-### 🔍 변경 세부사항
-<!-- 구체적으로 어떤 부분을 어떻게 변경했는지 설명해주세요 -->
+### Frontend
+- [ ] UI component changes
+- [ ] New pages/components added
+- [ ] State management updates
+- [ ] API integration changes
 
-#### 📁 수정된 파일들:
-- `파일명`: 변경 내용 설명
-- `파일명`: 변경 내용 설명
+### AI Service
+- [ ] Model changes
+- [ ] API modifications
+- [ ] Evaluation logic updates
 
-#### 🏗️ 아키텍처 변경사항:
-<!-- 시스템 아키텍처에 영향을 주는 변경사항이 있다면 설명 -->
+### Smart Contracts
+- [ ] Contract modifications
+- [ ] New contract deployment
+- [ ] Security updates
 
-### 🧪 테스트
-<!-- 테스트 방법을 설명해주세요 -->
+## Testing
+- [ ] Unit tests added/updated
+- [ ] Integration tests added/updated
+- [ ] E2E tests added/updated
+- [ ] Manual testing completed
+- [ ] All tests passing
 
-**테스트 커버리지:**
-- [ ] 단위 테스트 작성/수정
-- [ ] 통합 테스트 작성/수정
-- [ ] E2E 테스트 작성/수정
-- [ ] 수동 테스트 완료
+## Security Considerations
+- [ ] Security review completed
+- [ ] No sensitive data exposure
+- [ ] Input validation implemented
+- [ ] Authentication/Authorization verified
 
-**테스트 결과:**
-```
-테스트 실행 결과나 스크린샷
-```
+## Performance Impact
+- [ ] Performance benchmarks updated
+- [ ] No significant performance regression
+- [ ] Memory usage optimized
+- [ ] Database queries optimized
 
-### 📋 체크리스트
-- [ ] 🔒 보안 검토 완료 (민감한 정보 노출 없음)
-- [ ] 📖 문서화 업데이트 (필요시)
-- [ ] 🎯 관련 이슈 연결 (Closes #이슈번호)
-- [ ] 💻 코딩 스타일 준수 (ESLint, Prettier)
-- [ ] 🧪 모든 테스트 통과
-- [ ] 📱 반응형 디자인 확인 (모바일 대응)
+## Deployment Notes
+- [ ] Database migrations included
+- [ ] Environment variables documented
+- [ ] Docker images updated
+- [ ] Configuration changes documented
 
-### 🔗 관련 이슈
-<!-- 관련된 GitHub 이슈나 티켓이 있다면 링크해주세요 -->
-- Closes #
-- Related to #
+## Screenshots (if applicable)
+Add screenshots of UI changes or other visual modifications.
 
-### 💡 추가 노트
-<!-- 리뷰어에게 전달하고 싶은 추가 정보나 고려사항 -->
+## Related Issues
+Closes # [issue number]
+Relates to # [issue number]
 
-**Breaking Changes:**
-<!-- 기존 사용자에게 영향을 줄 수 있는 변경사항이 있다면 설명 -->
+## Checklist
+- [ ] Code follows project coding standards
+- [ ] Commit messages are clear and descriptive
+- [ ] Documentation updated (if needed)
+- [ ] All CI checks passing
+- [ ] Reviewed by at least one team member
+- [ ] Ready for merge
 
-**Migration Guide:**
-<!-- 사용자가 이 변경사항을 적용하기 위해 해야 할 작업 -->
-
-**Performance Impact:**
-<!-- 성능에 미치는 영향이 있다면 설명 -->
-
----
-
-**기여해 주셔서 감사합니다! 🎉**
+## Additional Notes
+Any additional information or context for reviewers.

@@ -1,0 +1,62 @@
+# Code Owners Configuration
+# This file defines who owns different parts of the codebase
+# and who should review changes to specific files/directories
+
+# Global owners (must review all changes)
+* @project-maintainer
+
+# Backend service
+/backend/ @backend-team @project-maintainer
+/backend/src/controllers/ @backend-team
+/backend/src/models/ @backend-team
+/backend/src/routes/ @backend-team
+/backend/src/services/ @backend-team
+
+# Frontend application
+/frontend/ @frontend-team @project-maintainer
+/frontend/src/components/ @frontend-team
+/frontend/src/pages/ @frontend-team
+/frontend/src/services/ @frontend-team
+
+# AI Service
+/ai-service/ @ai-team @project-maintainer
+/ai-service/app/ @ai-team
+/ai-service/models/ @ai-team
+
+# Smart Contracts
+/smart-contracts/ @blockchain-team @project-maintainer
+/smart-contracts/contracts/ @blockchain-team
+/smart-contracts/test/ @blockchain-team
+/smart-contracts/scripts/ @blockchain-team
+
+# Infrastructure and DevOps
+/docker-compose.yml @devops-team @project-maintainer
+/docker/ @devops-team
+*.Dockerfile @devops-team
+start.sh @devops-team
+
+# Documentation
+/docs/ @tech-writers @project-maintainer
+*.md @tech-writers
+README* @tech-writers
+
+# CI/CD and Configuration
+/.github/ @devops-team @project-maintainer
+.github/workflows/ @devops-team
+package.json @devops-team
+requirements.txt @devops-team
+
+# Security-related files
+# These require security team review
+LICENSE @legal-team @security-team
+/SECURITY.md @security-team
+/backend/src/services/securityManager.js @security-team
+/smart-contracts/ @security-team
+
+# Database and migrations
+/docker/mongo-init/ @backend-team @devops-team
+
+# Dependencies and lock files
+package-lock.json @devops-team
+yarn.lock @devops-team
+requirements.txt @ai-team @devops-team

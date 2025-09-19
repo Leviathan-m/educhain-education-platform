@@ -1,5 +1,5 @@
 ---
-name: ✨ Feature Request
+name: Feature Request
 about: Suggest an idea for this project
 title: "[FEATURE] "
 labels: enhancement
@@ -7,67 +7,47 @@ assignees: ''
 
 ---
 
-## ✨ 기능 제안
+## Feature Summary
+Brief description of the feature you're requesting.
 
-### 🎯 기능 개요
-<!-- 제안하는 기능에 대해 설명해주세요 -->
+## Problem Statement
+What problem does this feature solve? Why is this feature needed?
 
-**기능 이름:**
-<!-- 간단한 기능 이름 -->
+## Proposed Solution
+Describe your proposed solution in detail.
 
-**카테고리:**
-- [ ] 사용자 인터페이스 개선
-- [ ] 새로운 기능 추가
-- [ ] 성능 최적화
-- [ ] 보안 강화
-- [ ] 통합 기능
-- [ ] 기타
+### User Stories
+- As a [user type], I want [goal] so that [benefit]
+- As a [user type], I want [goal] so that [benefit]
 
-### 📝 상세 설명
-<!-- 기능이 어떤 문제를 해결하는지, 어떻게 동작해야 하는지 설명해주세요 -->
+## Alternative Solutions
+Describe any alternative solutions or features you've considered.
 
-**문제점:**
-<!-- 이 기능이 해결하려는 문제 -->
+## Implementation Details
+Technical details about how this feature should be implemented:
 
-**해결 방안:**
-<!-- 어떻게 해결할 것인지 -->
+- **Service:** [backend, frontend, ai-service, smart-contracts]
+- **API Changes:** [new endpoints, modifications]
+- **Database Changes:** [new tables, schema changes]
+- **UI Changes:** [new components, pages]
+- **Dependencies:** [new packages, services]
 
-**대안:**
-<!-- 다른 해결 방법이 있다면 -->
+## Acceptance Criteria
+- [ ] Criteria 1
+- [ ] Criteria 2
+- [ ] Criteria 3
 
-### 🎨 사용자 경험
-<!-- 사용자 관점에서 어떻게 사용될지 설명 -->
+## Mockups/Screenshots
+If applicable, add mockups or screenshots of the proposed feature.
 
-**사용자 시나리오:**
-1. 사용자가 ...
-2. 시스템이 ...
-3. 결과적으로 ...
+## Additional Context
+Any other context or information about the feature request.
 
-### 🏗️ 기술적 고려사항
-<!-- 기술적 구현 관점에서 고려해야 할 사항들 -->
+## Priority
+- [ ] Low
+- [ ] Medium
+- [ ] High
+- [ ] Critical
 
-**기술적 복잡도:**
-- [ ] 낮음 (기존 코드 수정만 필요)
-- [ ] 중간 (새로운 모듈/컴포넌트 필요)
-- [ ] 높음 (아키텍처 변경 필요)
-
-**의존성:**
-<!-- 필요한 외부 라이브러리나 서비스 -->
-
-**호환성:**
-<!-- 기존 기능과의 호환성 고려사항 -->
-
-### 📊 비즈니스 가치
-<!-- 이 기능의 비즈니스적 가치 -->
-
-**사용자 혜택:**
-<!-- 사용자에게 주는 혜택 -->
-
-**비즈니스 임팩트:**
-<!-- 비즈니스 측면에서의 영향 -->
-
-### ✅ 체크리스트
-- [ ] 다른 이슈와 중복되지 않음
-- [ ] 상업적 라이선스 정책 준수
-- [ ] 구현 가능성 검토됨
-- [ ] 우선순위 고려됨
+## Related Issues
+Link to any related issues or discussions.
