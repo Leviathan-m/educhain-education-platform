@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
@@ -58,14 +58,14 @@ jobs:
 
       - name: Setup Node.js ${{ matrix.node-version }} (with cache)
         if: ${{ hashFiles('frontend/package.json') != '' && hashFiles('frontend/package-lock.json') != '' }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
           cache-dependency-path: frontend/package-lock.json
       - name: Setup Node.js ${{ matrix.node-version }} (no cache)
         if: ${{ hashFiles('frontend/package.json') != '' && hashFiles('frontend/package-lock.json') == '' }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -101,14 +101,14 @@ jobs:
 
       - name: Setup Node.js (with cache)
         if: ${{ hashFiles('smart-contracts/package-lock.json') != '' }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 18.x
           cache: 'npm'
           cache-dependency-path: smart-contracts/package-lock.json
       - name: Setup Node.js (no cache)
         if: ${{ hashFiles('smart-contracts/package-lock.json') == '' }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 18.x
 
@@ -191,7 +191,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 18.x
 
@@ -218,7 +218,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 18.x
 
