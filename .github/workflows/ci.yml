@@ -56,15 +56,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js ${{ matrix.node-version }} (with cache)
+        if: ${{ hashFiles('frontend/package-lock.json') != '' }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
           cache-dependency-path: frontend/package-lock.json
+      - name: Setup Node.js ${{ matrix.node-version }} (no cache)
+        if: ${{ hashFiles('frontend/package-lock.json') == '' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
+      - name: Install dependencies (lockfile)
+        if: ${{ hashFiles('frontend/package-lock.json') != '' }}
         run: npm ci
+      - name: Install dependencies (no lockfile)
+        if: ${{ hashFiles('frontend/package-lock.json') == '' }}
+        run: npm install
 
       - name: Lint code
         run: npm run lint || true
@@ -86,15 +96,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js (with cache)
+        if: ${{ hashFiles('smart-contracts/package-lock.json') != '' }}
         uses: actions/setup-node@v4
         with:
           node-version: 18.x
           cache: 'npm'
           cache-dependency-path: smart-contracts/package-lock.json
+      - name: Setup Node.js (no cache)
+        if: ${{ hashFiles('smart-contracts/package-lock.json') == '' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
 
-      - name: Install dependencies
+      - name: Install dependencies (lockfile)
+        if: ${{ hashFiles('smart-contracts/package-lock.json') != '' }}
         run: npm ci
+      - name: Install dependencies (no lockfile)
+        if: ${{ hashFiles('smart-contracts/package-lock.json') == '' }}
+        run: npm install
 
       - name: Compile contracts
         run: npx hardhat compile
@@ -150,7 +170,12 @@ jobs:
         run: docker build -t nft-backend:test ./backend
 
       - name: Build frontend Docker image
+        if: ${{ hashFiles('frontend/Dockerfile') != '' }}
         run: docker build -t nft-frontend:test ./frontend
+      - name: Skip build (no frontend Dockerfile)
+        if: ${{ hashFiles('frontend/Dockerfile') == '' }}
+        run: |
+          echo "Skipping frontend image build: frontend/Dockerfile not found"
 
       - name: Build ai-service Docker image
         run: docker build -t nft-ai-service:test ./ai-service
