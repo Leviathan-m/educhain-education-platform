@@ -348,7 +348,7 @@ contract EducationCredentialNFT is
      * @param tokenId The token ID to check
      */
     function isCredentialExpired(uint256 tokenId)
-        external
+        public
         view
         returns (bool)
     {
@@ -510,7 +510,7 @@ contract EducationCredentialNFT is
     /**
      * @dev Update certificate verification status (only owner)
      * @param tokenId Token ID
-     * @param verified New verification status
+     * @param isValid New verification status
      */
     function setCredentialVerification(uint256 tokenId, bool isValid, string memory reason) public onlyRole(VERIFIER_ROLE) {
         require(_exists(tokenId), "Credential does not exist");
