@@ -150,7 +150,8 @@ contract EducationCredentialNFT is
             isSoulbound: isSoulbound,
             issuer: msg.sender,
             validUntil: validUntil,
-            zkProof: zkProof
+            zkProof: zkProof,
+            isVerified: false
         });
 
         usedHashes[credentialHash] = true;
@@ -228,7 +229,8 @@ contract EducationCredentialNFT is
             isSoulbound: isSoulbound,
             issuer: msg.sender,
             validUntil: validUntil,
-            zkProof: zkProof
+            zkProof: zkProof,
+            isVerified: false
         });
 
         usedHashes[credentialHash] = true;
